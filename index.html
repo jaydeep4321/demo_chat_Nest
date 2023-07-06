@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat app</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <section class="chat__section">
+        <div class="brand">
+            <img height="40" src="/wassup.png" alt="">
+            <h1>Chat</h1>
+        </div>
+        <form id="form" action="" >
+            <label for="">Username:</label>
+            <input type="text" id="uname" autocomplete="off"/><br><br>
+            <label for="">Room Name:</label>
+            <input type="text" id="room" autocomplete="off" />
+            <button>Join</button> 
+            <!-- <button id="myButton" class="float-left submit-button" >
+                <a href="/chat"> Join </a></button> -->
+        </form>
+    </section>
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script>
+        var form = document.getElementById('form')
+        var uname = document.getElementById('uname');
+        var room = document.getElementById('room');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (uname.value && room.value){
+                localStorage.setItem("uname", uname.value )
+                localStorage.setItem("room", room.value )
+                console.log(uname.value);
+                location.href="/chat";
+        //   socket.emit('chat message', input.value);
+        //   input.value = '';
+            // } else {
+            //     localStorage.setItem("uname", uname.value )
+            //     //console.log(uname.value);
+            //     location.href="/chat";
+            }
+        })
+    </script>
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat app</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <section class="chat__section">
+        <div class="brand">
+            <img height="40" src="/wassup.png" alt="">
+            <h1>Chat</h1>
+        </div>
+        <div class="message__area"></div>
+        <div>
+            <textarea id="textarea" cols="30" rows="1" placeholder="Write a message..."></textarea>
+        </div>
+    </section>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+</body>
+
+</html> -->
